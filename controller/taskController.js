@@ -40,7 +40,39 @@ async function createTask (req, res) {
     }
 }
 
+async function updateTask (req, res) {
+    try {
+        let targetTask = await Task.findOne({ _id: req.params.id });
+
+        let updatedTask = {
+            _id: targetTask._id,
+            subject: req.body.subject,
+            description: req.body.description,
+            importance: req.body.importance
+        }
+
+        await Task.updateOne(
+            { _id: req.params.id },
+            { $set: updatedTask },
+            { upsert: true }
+        )
+
+        res.json({
+            message: "success",
+            payload: updateTask
+        })
+    } catch (error) {
+        let errorObj = {
+            message: "updateTask failure",
+            payload: error
+        }
+        console.log(errorObj);
+        res.json(errorObj);
+    }
+}
+
 module.exports = {
     getTaskList,
-    createTask
+    createTask,
+    updateTask
 }
