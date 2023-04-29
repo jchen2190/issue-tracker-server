@@ -12,10 +12,10 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        favoriteIssue: {
+        favoriteTask: {
             type: [{
                 type: ObjectId,
-                ref: "Issue",
+                ref: "Task",
             }],
         }
     }

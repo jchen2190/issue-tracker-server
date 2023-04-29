@@ -1,23 +1,26 @@
 const mongoose = require("mongoose");
 
-const issueSchema = new mongoose.Schema(
+const taskSchema = new mongoose.Schema(
     {
-        IssueNo: {
+        taskNo: {
             type: Number,
             unique: true,
             required: true
         },
-        Description: {
+        subject: {
             type: String,
-            unique: true,
             required: true
         },
-        Importance: {
+        description: {
+            type: String,
+            required: true
+        },
+        importance: {
             type: String,
             required: true
         },
     }
 )
 
-const Issue = mongoose.model("Issue", issueSchema);
-module.exports = Issue;
+const Task = mongoose.model("Task", taskSchema);
+module.exports = Task;
