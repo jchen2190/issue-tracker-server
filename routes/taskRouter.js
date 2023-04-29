@@ -3,9 +3,11 @@ const router = express.Router();
 
 const {
     getTaskList,
+    createTask
 } = require("../controller/taskController");
 
 // localhost:3030/api...
 router.get("/tasklist", getTaskList);
+router.post("/createTask", createTask);
 
 module.exports = router;

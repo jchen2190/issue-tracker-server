@@ -10,7 +10,30 @@ async function getTaskList(req, res) {
         })
     } catch (error) {
         let errorObj = {
-            message: "get all tasks failure",
+            message: "getTaskList failure",
+            payload: error
+        }
+        console.log(errorObj);
+        res.json(errorObj);
+    }
+}
+
+async function createTask (req, res) {
+    try {
+        let newTask = {
+            taskNo: req.body.taskNo,
+            subject: req.body.subject,
+            description: req.body.description,
+            importance: req.body.importance
+        }
+        await Task.create(newTask);
+        res.json({
+            message: "success",
+            payload: newTask
+        })
+    } catch (error) {
+        let errorObj = {
+            message: "createTask failure",
             payload: error
         }
         console.log(errorObj);
@@ -19,5 +42,6 @@ async function getTaskList(req, res) {
 }
 
 module.exports = {
-    getTaskList
+    getTaskList,
+    createTask
 }
