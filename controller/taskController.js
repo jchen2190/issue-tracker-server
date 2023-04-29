@@ -21,7 +21,6 @@ async function getTaskList(req, res) {
 async function createTask (req, res) {
     try {
         let newTask = {
-            taskNo: req.body.taskNo,
             subject: req.body.subject,
             description: req.body.description,
             importance: req.body.importance
