@@ -89,9 +89,28 @@ async function updateTask (req, res) {
     }
 }
 
+async function deleteTask(req, res) {
+    try {
+        let targetTask = req.params.id;
+        let deletedTask = await Task.deleteOne({_id: targetTask});
+        res.json({
+            message: "success",
+            payload: deletedTask
+        })
+    } catch (error) {
+        let errorObj = {
+            message: "deleteTask failure",
+            payload: error
+        }
+        console.log(errorObj);
+        res.json(errorObj);
+    }
+}
+
 module.exports = {
     getTaskList,
     createTask,
     getTaskById,
-    updateTask
+    updateTask,
+    deleteTask
 }
