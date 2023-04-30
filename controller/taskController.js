@@ -40,6 +40,24 @@ async function createTask (req, res) {
     }
 }
 
+async function getTaskById(req, res) {
+    try {
+        let foundTask = await Task.findOne({ _id: req.params.id })
+
+        res.json({
+            message: "success",
+            payload: foundTask
+        })
+    } catch (error) {
+        let errorObj = {
+            message: "getTaskById failure",
+            payload: error
+        }
+        console.log(errorObj);
+        res.json(errorObj);
+    }
+}
+
 async function updateTask (req, res) {
     try {
         let targetTask = await Task.findOne({ _id: req.params.id });
@@ -74,5 +92,6 @@ async function updateTask (req, res) {
 module.exports = {
     getTaskList,
     createTask,
+    getTaskById,
     updateTask
 }
