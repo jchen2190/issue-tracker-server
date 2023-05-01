@@ -21,6 +21,8 @@ async function getTaskList(req, res) {
 async function createTask (req, res) {
     try {
         let newTask = {
+            status: req.body.status,
+            created: new Date(),
             subject: req.body.subject,
             description: req.body.description,
             importance: req.body.importance
@@ -64,6 +66,8 @@ async function updateTask (req, res) {
 
         let updatedTask = {
             _id: targetTask._id,
+            status: req.body.status,
+            created: req.body.created,
             subject: req.body.subject,
             description: req.body.description,
             importance: req.body.importance

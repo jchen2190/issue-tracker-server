@@ -2,6 +2,14 @@ const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema(
     {
+        status: {
+            type: String,
+            required: true
+        },
+        created: {
+            type: Date,
+            default: Date.now
+        },
         subject: {
             type: String,
             required: true
