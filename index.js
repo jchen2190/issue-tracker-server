@@ -28,7 +28,10 @@ app.use(sessions({
 }))
 
 const taskRouter = require("./routes/taskRouter");
-app.use("/api", taskRouter);
+app.use("/api/issue", taskRouter);
+
+const userRouter = require("./routes/userRouter");
+app.use("/api/user", userRouter);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {

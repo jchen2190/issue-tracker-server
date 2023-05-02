@@ -9,7 +9,7 @@ const {
     deleteTask
 } = require("../controller/taskController");
 
-// localhost:3030/api...
+// localhost:3030/api/issue...
 router.get("/tasklist", getTaskList);
 router.post("/createTask", createTask);
 router.get("/getTaskById/:id", getTaskById);
