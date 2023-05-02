@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
-require("dotenv").config();
 const connectToMongoDB = require("./database/mongodb");
 const cors = require("cors");
 const logger = require("morgan");
+require("dotenv").config();
 
 app.use(logger("dev")); 
 app.use(express.urlencoded({extended: false}));
@@ -14,6 +14,18 @@ const corsOptions = {
     optionSuccessStatus: 200
 }
 app.use(cors(corsOptions));
+
+const cookieParser = require("cookie-parser");
+app.use(cookieParser(process.env.COOKIE_SECRET));
+const sessions = require("express-session");
+
+const oneDay = 1000 * 60 * 60 * 24
+app.use(sessions({
+    secret: process.env.COOKIE_SECRET,
+    saveUninitialized: false,
+    cookie: { maxAge: oneDay },
+    resave: false
+}))
 
 const taskRouter = require("./routes/taskRouter");
 app.use("/api", taskRouter);
