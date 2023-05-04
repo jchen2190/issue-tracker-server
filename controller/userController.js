@@ -19,7 +19,9 @@ async function createUser(req, res) {
         }
 
         await User.create(newUserObj);
-        res.json({ message: "User created successfully" });
+        res.json({
+            message: "User created successfully",
+        });
 
     } catch (error) {
         let errorObj = {
@@ -36,7 +38,7 @@ async function logInUser(req, res) {
         const user = await User.findOne({ username: req.body.username });
 
         if (!user) {
-            throw "User not found, you can create an account using this name."
+            return res.json({ error: "User not found" })
         } else {
             let comparedPassword = await bcrypt.compare(
                 req.body.password,
@@ -44,19 +46,27 @@ async function logInUser(req, res) {
             )
 
             if (!comparedPassword) {
-                throw "Please check your password and try again"
+                return res.json({ error: "Invalid Password" })
             } else {
                 req.session.isAuth = true;
-
+                
                 let userObj = {
                     username: user.username,
                     id: user._id
                 }
-
                 req.session.user = userObj;
+
+                req.session.save((error) => {
+                    if (error) {
+                        console.error(error);
+                    }
+                    res.json({
+                        message: "User logged in successfully",
+                        payload: req.session,
+                    })
+                })
             }
         }
-        
     } catch (error) {
         let errorObj = {
             message: "logInUser failure",
@@ -67,7 +77,32 @@ async function logInUser(req, res) {
     }
 }
 
+// TO DO: Access session data after logging in, session data is missing
+async function userData(req, res) {
+    try {
+        console.log(req.session);
+        if (!req.session) {
+            return res.json({ error: "Not Authorized" })
+        } else {
+            const username = req.session.user.username;
+            const foundUser = await User.findOne({ username: username})
+            res.json({
+                message: "Access successful",
+                payload: foundUser
+            })
+        }
+    } catch (error) {
+        let errorObj = {
+            message: "userData failure",
+            payload: error
+        }
+        console.log(errorObj);
+        res.json(errorObj);
+    }
+}
+
 module.exports = {
     createUser,
-    logInUser
+    logInUser,
+    userData,
 }

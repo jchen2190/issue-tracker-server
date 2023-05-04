@@ -17,14 +17,14 @@ app.use(cors(corsOptions));
 
 const cookieParser = require("cookie-parser");
 app.use(cookieParser(process.env.COOKIE_SECRET));
-const sessions = require("express-session");
 
+const sessions = require("express-session");
 const oneDay = 1000 * 60 * 60 * 24
 app.use(sessions({
     secret: process.env.COOKIE_SECRET,
     saveUninitialized: false,
     cookie: { maxAge: oneDay },
-    resave: false
+    resave: false,
 }))
 
 const taskRouter = require("./routes/taskRouter");
