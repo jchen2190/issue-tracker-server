@@ -107,7 +107,6 @@ async function logOutUser(req, res) {
         res.clearCookie("connect.sid", {
             maxAge: null
         })
-        res.sendStatus(200);
         res.json({
             message: "User logged out"
         })
