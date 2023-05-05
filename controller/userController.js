@@ -100,8 +100,30 @@ async function userData(req, res) {
     }
 }
 
+async function logOutUser(req, res) {
+    try {
+        req.session.destroy();
+        // res.clearCookie('auth');
+        res.clearCookie("connect.sid", {
+            maxAge: null
+        })
+        res.sendStatus(200);
+        res.json({
+            message: "User logged out"
+        })
+    } catch (error) {
+        let errorObj = {
+            message: "logOutUser failure",
+            payload: error
+        }
+        console.log(errorObj);
+        res.json(errorObj);
+    }
+}
+
 module.exports = {
     createUser,
     logInUser,
     userData,
+    logOutUser
 }
