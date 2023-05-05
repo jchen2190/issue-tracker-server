@@ -3,6 +3,12 @@ const bcrypt = require("bcrypt");
 
 async function createUser(req, res) {
     try {
+        const existingUser = await User.findOne({ username: req.body.username });
+
+        if (existingUser) {
+            return res.json({ error: "Username Taken" });
+        }
+
         let { username, password } = req.body;
         let salt = await bcrypt.genSalt(10);
         let encryptedPassword = await bcrypt.hash(password, salt);
@@ -11,11 +17,6 @@ async function createUser(req, res) {
             username: username,
             password: encryptedPassword,
             assignedTo: []
-        }
-
-        const existingUser = await User.findOne({ username: req.body.username });
-        if(existingUser) {
-            return res.json({ error: "Username Taken" });
         }
 
         await User.create(newUserObj);
@@ -55,14 +56,13 @@ async function logInUser(req, res) {
                     id: user._id
                 }
                 req.session.user = userObj;
-
                 req.session.save((error) => {
                     if (error) {
                         console.error(error);
                     }
                     res.json({
                         message: "User logged in successfully",
-                        payload: req.session,
+                        // payload: userObj,
                     })
                 })
             }
@@ -77,11 +77,10 @@ async function logInUser(req, res) {
     }
 }
 
-// TO DO: Access session data after logging in, session data is missing
 async function userData(req, res) {
+    console.log(req.session);
     try {
-        console.log(req.session);
-        if (!req.session) {
+        if (!req.session || !req.session.user) {
             return res.json({ error: "Not Authorized" })
         } else {
             const username = req.session.user.username;
