@@ -21,11 +21,14 @@ async function getTaskList(req, res) {
 async function createTask (req, res) {
     try {
         let newTask = {
-            status: req.body.status,
+            status: "open",
             created: new Date(),
             subject: req.body.subject,
             description: req.body.description,
-            importance: req.body.importance
+            importance: req.body.importance,
+            author: req.body.author,
+            assignTo: req.body.assignTo,
+            dueDate: req.body.dueDate
         }
         await Task.create(newTask);
         res.json({
@@ -70,7 +73,10 @@ async function updateTask (req, res) {
             created: req.body.created,
             subject: req.body.subject,
             description: req.body.description,
-            importance: req.body.importance
+            importance: req.body.importance,
+            author: req.body.author,
+            assignTo: req.body.assignTo,
+            dueDate: req.body.dueDate
         }
 
         await Task.updateOne(
