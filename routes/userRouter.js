@@ -5,13 +5,15 @@ const {
     createUser,
     logInUser,
     userData,
-    logOutUser
+    logOutUser,
+    getAllUsers
 } = require("../controller/userController");
 
 // localhost:3030/api/user...
 router.post("/createUser", createUser);
 router.post("/logInUser", logInUser);
 router.post("/userData", userData);
-router.post("/logOutUser", logOutUser)
+router.post("/logOutUser", logOutUser);
+router.get("/getAllUsers", getAllUsers)
 
 module.exports = router;

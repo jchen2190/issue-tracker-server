@@ -120,9 +120,28 @@ async function logOutUser(req, res) {
     }
 }
 
+async function getAllUsers(req, res) {
+    try {
+        let result = await User.find({})
+
+        res.json({
+            message: "success",
+            payload: result
+        });
+    } catch (error) {
+        let errorObj = {
+            message: "getAllUsers failure",
+            payload: error
+        }
+        console.log(errorObj);
+        res.json(errorObj);
+    }
+}
+
 module.exports = {
     createUser,
     logInUser,
     userData,
-    logOutUser
+    logOutUser,
+    getAllUsers
 }
