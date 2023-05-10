@@ -16,7 +16,6 @@ const taskSchema = new mongoose.Schema(
         },
         description: {
             type: String,
-            required: true
         },
         importance: {
             type: String,
@@ -28,7 +27,6 @@ const taskSchema = new mongoose.Schema(
         },
         assignTo: {
             type: String,
-            required: true
         },
         dueDate: {
             type: Date,

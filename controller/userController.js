@@ -78,7 +78,6 @@ async function logInUser(req, res) {
 }
 
 async function userData(req, res) {
-    console.log(req.session);
     try {
         if (!req.session || !req.session.user) {
             return res.json({ error: "Not Authorized" })
