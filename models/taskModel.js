@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema(
     {
+        taskNo: {
+            type: Number,
+            required: true,
+        },
         status: {
             type: String,
             required: true

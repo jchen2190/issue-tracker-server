@@ -1,0 +1,229 @@
+[{
+  "_id": {
+    "$oid": "6450100e359909ca308e2134"
+  },
+  "status": "open",
+  "created": {
+    "$date": "2023-05-01T19:16:30.196Z"
+  },
+  "subject": "MongoDB time help",
+  "description": "I am trying to insert time into the MongoDB model, this is a test.",
+  "importance": "medium",
+  "__v": 0,
+  "assignTo": "jchen",
+  "author": "jchen",
+  "dueDate": "2023-05-09T04:52:31.137+00:00",
+  "taskNo": "1"
+},{
+  "_id": {
+    "$oid": "6450118a359909ca308e213e"
+  },
+  "status": "closed",
+  "created": {
+    "$date": "2023-05-01T19:22:50.240Z"
+  },
+  "subject": "testing first submissions",
+  "description": "testing first submissions",
+  "importance": "medium",
+  "__v": 0,
+  "assignTo": "carla",
+  "author": "carla",
+  "dueDate": {
+    "$date": "2023-05-09T04:52:31.137Z"
+  },
+  "taskNo": "2"
+},{
+  "_id": {
+    "$oid": "6450283c4c929394d6f5e4b7"
+  },
+  "status": "open",
+  "created": {
+    "$date": "2023-05-01T20:59:40.016Z"
+  },
+  "subject": "Need Help with CSS",
+  "description": "The project IssueTracker needs a glow up on showing the details of each issues!",
+  "importance": "high",
+  "__v": 0,
+  "assignTo": "jchen",
+  "author": "carlbe",
+  "dueDate": {
+    "$date": "2023-05-09T04:52:31.137Z"
+  },
+  "taskNo": "3"
+},{
+  "_id": {
+    "$oid": "64506bdb66e9af9f66ac4457"
+  },
+  "status": "closed",
+  "created": {
+    "$date": "2023-05-02T01:48:11.065Z"
+  },
+  "subject": "react project getting too much re-rendering error",
+  "description": "On placing function within the button, it gives back the re-rendering error. How to fix this? Requires senior assistance.",
+  "importance": "low",
+  "__v": 0,
+  "author": "jchen",
+  "dueDate": {
+    "$date": "2023-05-09T04:52:31.137Z"
+  },
+  "taskNo": "4"
+},{
+  "_id": {
+    "$oid": "645085cc66e9af9f66ac44f7"
+  },
+  "status": "open",
+  "created": {
+    "$date": "2023-05-02T03:38:52.015Z"
+  },
+  "subject": "IssueTasker login and user page is needed!",
+  "description": "Add login and users page for the react project",
+  "importance": "medium",
+  "__v": 0,
+  "author": "applebanana",
+  "dueDate": {
+    "$date": "2023-05-09T04:52:31.137Z"
+  },
+  "assignTo": "jchen",
+  "taskNo": "5"
+},{
+  "_id": {
+    "$oid": "645086a3602d1b126109a982"
+  },
+  "status": "closed",
+  "created": {
+    "$date": "2023-05-02T03:42:27.311Z"
+  },
+  "subject": "qwerqwer",
+  "description": "qwerqwer",
+  "importance": "high",
+  "__v": 0,
+  "author": "jchen",
+  "dueDate": "2023-05-09T04:52:31.137+00:00",
+  "taskNo": "6"
+},{
+  "_id": {
+    "$oid": "6452f747f79b1087d46c2ac8"
+  },
+  "status": "closed",
+  "created": {
+    "$date": "2023-05-04T00:07:35.740Z"
+  },
+  "subject": "login gives a chrome issue",
+  "description": "when user logs in, chrome gives a security issue. note: tested only in localhost",
+  "importance": "low",
+  "__v": 0,
+  "assignTo": "myUsername",
+  "author": "myUsername",
+  "dueDate": {
+    "$date": "2023-05-09T04:52:31.137Z"
+  },
+  "taskNo": "7"
+},{
+  "_id": {
+    "$oid": "64544a688f52851740e0cb2d"
+  },
+  "status": "closed",
+  "created": {
+    "$date": "2023-05-05T00:14:32.396Z"
+  },
+  "subject": "Login set-cookie missing",
+  "description": "Without a set-cookie we cannot save the data for each user, but cors policy is blocking this. This is urgent to test out data connection to MongoDB!",
+  "importance": "high",
+  "__v": 0,
+  "author": "myUsername",
+  "assignTo": "applebanana",
+  "dueDate": {
+    "$date": "2023-05-09T04:52:31.137Z"
+  },
+  "taskNo": "8"
+},{
+  "_id": {
+    "$oid": "6455c05a55ea3bf0ba7a2371"
+  },
+  "status": "open",
+  "created": {
+    "$date": "2023-05-06T02:50:02.389Z"
+  },
+  "subject": "time input for created vs due date",
+  "description": "creating new issue on a specific timezone will get different dates - see this ticket dates\ntime created on 5/5 but date is due on 5/4 when this issue was created",
+  "importance": "medium",
+  "author": "anonymous",
+  "assignTo": "qwer",
+  "dueDate": {
+    "$date": "2023-05-05T00:00:00.000Z"
+  },
+  "__v": 0,
+  "taskNo": "9"
+},{
+  "_id": {
+    "$oid": "6455c67b55ea3bf0ba7a23a2"
+  },
+  "status": "open",
+  "created": {
+    "$date": "2023-05-06T03:16:11.395Z"
+  },
+  "subject": "Missing Content for users",
+  "description": "Users after signing in needs tiles and details for their profile and the homepage needs to welcome the user dynamically. Missing code",
+  "importance": "medium",
+  "author": "anonymous",
+  "assignTo": "jchen",
+  "dueDate": {
+    "$date": "2023-05-13T00:00:00.000Z"
+  },
+  "__v": 0,
+  "taskNo": "10"
+},{
+  "_id": {
+    "$oid": "6459d204df806f8ed8fd23e2"
+  },
+  "status": "open",
+  "created": {
+    "$date": "2023-05-09T04:54:28.401Z"
+  },
+  "subject": "Bootstrap CSS examples",
+  "description": "Need more styling for forms and Issue list. Work on login forms as well. There are bad spacings between each forms and sometimes items are touching eachother.",
+  "importance": "low",
+  "author": "jchen",
+  "assignTo": "jchen",
+  "dueDate": {
+    "$date": "2023-05-09T04:52:31.137Z"
+  },
+  "__v": 0,
+  "taskNo": "11"
+},{
+  "_id": {
+    "$oid": "645be529e1f5edac639a0c2e"
+  },
+  "status": "open",
+  "created": {
+    "$date": "2023-05-10T18:40:41.332Z"
+  },
+  "subject": "personal tasks not showing on profile",
+  "description": "backend data needs to be added for saved data. frontend needs to display said data.",
+  "importance": "medium",
+  "author": "jchen",
+  "assignTo": "username3",
+  "dueDate": {
+    "$date": "2023-05-20T00:00:00.000Z"
+  },
+  "__v": 0,
+  "taskNo": "12"
+},{
+  "_id": {
+    "$oid": "645d6071ca355ffbaa8ad55e"
+  },
+  "taskNo": 13,
+  "status": "open",
+  "created": {
+    "$date": "2023-05-11T21:38:57.936Z"
+  },
+  "subject": "IssueTracker table needs sorting + pagination",
+  "description": "Work on more styling for the buttons and see if the prev + next buttons should be on top of the table to prevent erupt movement when clicking through pages. Also maybe include buttons between the prev + next button to directly page select",
+  "importance": "low",
+  "author": "guest",
+  "assignTo": "guest",
+  "dueDate": {
+    "$date": "2023-05-31T00:00:00.000Z"
+  },
+  "__v": 0
+}]

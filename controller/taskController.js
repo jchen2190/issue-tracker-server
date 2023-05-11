@@ -20,7 +20,12 @@ async function getTaskList(req, res) {
 
 async function createTask (req, res) {
     try {
+        const tasks = await Task.find({})
+        console.log(tasks[tasks.length-1].taskNo)
+        const nextTaskNo = tasks[tasks.length-1].taskNo ? tasks[tasks.length-1].taskNo + 1 : 1;
+
         let newTask = {
+            taskNo: nextTaskNo,
             status: "open",
             created: new Date(),
             subject: req.body.subject,
