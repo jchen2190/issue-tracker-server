@@ -4,7 +4,8 @@ const connectToMongoDB = require("./database/mongodb");
 const cors = require("cors");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
-const sessions = require("express-session");
+// const sessions = require("express-session"); // store on server
+const sessions = require('cookie-session'); // store on client
 require("dotenv").config();
 
 app.use(logger("dev")); 
