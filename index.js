@@ -13,8 +13,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 app.use(cors({
-    "origin": "http://localhost:3000",
-    // "origin": "https://jchen2190.github.io/",
+    // "origin": "http://localhost:3000",
+    "origin": "https://jchen2190.github.io/issue-tracker-client",
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "credentials": true,
     "optionSuccessStatus": 200
