@@ -6,6 +6,7 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const sessions = require("express-session"); // store on server
 // const sessions = require('cookie-session'); // store on client
+const MemoryStore = require('memorystore')(sessions); // prevents memory leak in render
 require("dotenv").config();
 
 app.use(logger("dev")); 
@@ -28,8 +29,11 @@ app.use(sessions({
     resave: false,
     cookie: {
         maxAge: oneDay,
-        secure: false
+        // secure: false
     },
+    store: new MemoryStore({
+        checkPeriod: oneDay
+    })
 }))
 
 const taskRouter = require("./routes/taskRouter");
