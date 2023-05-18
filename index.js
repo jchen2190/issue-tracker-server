@@ -15,8 +15,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 app.use(cors({
-    "origin": "http://localhost:3000",
-    // "origin": "https://issue-tracker-client-dja8.onrender.com",
+    // "origin": "http://localhost:3000",
+    "origin": "https://issue-tracker-client-dja8.onrender.com",
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "credentials": true,
     "optionSuccessStatus": 200
