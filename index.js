@@ -28,10 +28,10 @@ app.use(sessions({
     secret: process.env.COOKIE_SECRET,
     saveUninitialized: false,
     resave: false,
-    // cookie: {
-    //     maxAge: oneDay,
-    //     secure: false
-    // },
+    cookie: {
+        maxAge: oneDay,
+        secure: false
+    },
     store: new MemoryStore({
         checkPeriod: oneDay
     })
@@ -42,12 +42,6 @@ app.use("/api/issue", taskRouter);
 
 const userRouter = require("./routes/userRouter");
 app.use("/api/user", userRouter);
-
-// prevent refresh crash over render
-app.use(express.static(path.join(__dirname, 'client', 'build')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
