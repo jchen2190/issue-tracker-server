@@ -4,11 +4,9 @@ const connectToMongoDB = require("./database/mongodb");
 const cors = require("cors");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
-const sessions = require("express-session"); // store on server
-// const sessions = require('cookie-session'); // store on client
+const sessions = require("express-session");
 const MemoryStore = require('memorystore')(sessions); // prevents memory leak in render
 require("dotenv").config();
-const path = require("path");
 
 app.use(logger("dev")); 
 app.use(express.urlencoded({extended: false}));
@@ -28,10 +26,10 @@ app.use(sessions({
     secret: process.env.COOKIE_SECRET,
     saveUninitialized: false,
     resave: false,
-    cookie: {
-        maxAge: oneDay,
-        secure: false
-    },
+    // cookie: {
+    //     maxAge: oneDay,
+    //     secure: false
+    // },
     store: new MemoryStore({
         checkPeriod: oneDay
     })

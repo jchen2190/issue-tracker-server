@@ -50,7 +50,6 @@ async function logInUser(req, res) {
                 return res.json({ error: "Invalid Password" })
             } else {
                 req.session.isAuth = true;
-                console.log(req.session);
                 
                 let userObj = {
                     username: user.username,
@@ -63,7 +62,7 @@ async function logInUser(req, res) {
                     }
                     res.json({
                         message: "User logged in successfully",
-                        payload: userObj,
+                        // payload: userObj,
                     })
                 })
             }
