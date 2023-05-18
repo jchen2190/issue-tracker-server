@@ -62,7 +62,7 @@ async function logInUser(req, res) {
                     }
                     res.json({
                         message: "User logged in successfully",
-                        // payload: userObj,
+                        payload: userObj,
                     })
                 })
             }
