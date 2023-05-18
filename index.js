@@ -26,10 +26,10 @@ app.use(sessions({
     secret: process.env.COOKIE_SECRET,
     saveUninitialized: false,
     resave: false,
-    // cookie: {
-    //     maxAge: oneDay,
-    //     secure: false
-    // },
+    cookie: {
+        maxAge: oneDay,
+        secure: true,
+    },
     store: new MemoryStore({
         checkPeriod: oneDay
     })
