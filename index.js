@@ -8,14 +8,15 @@ const sessions = require("express-session"); // store on server
 // const sessions = require('cookie-session'); // store on client
 const MemoryStore = require('memorystore')(sessions); // prevents memory leak in render
 require("dotenv").config();
+const path = require("path");
 
 app.use(logger("dev")); 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 app.use(cors({
-    // "origin": "http://localhost:3000",
-    "origin": "https://issue-tracker-client-dja8.onrender.com",
+    "origin": "http://localhost:3000",
+    // "origin": "https://issue-tracker-client-dja8.onrender.com",
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "credentials": true,
     "optionSuccessStatus": 200
@@ -41,6 +42,12 @@ app.use("/api/issue", taskRouter);
 
 const userRouter = require("./routes/userRouter");
 app.use("/api/user", userRouter);
+
+// prevent refresh crash over render
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
