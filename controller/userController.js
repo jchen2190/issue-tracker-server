@@ -137,6 +137,35 @@ async function getAllUsers(req, res) {
     }
 }
 
+async function addIssueToUserWatchlist(req, res) {
+    try {
+        if (!req.session || !req.session.user) {
+            return res.json({ error: "Not Authorized" })
+        } else {
+            const username = req.session.user.username;
+            const foundUser = await User.findOne({ username: username})
+            foundUser.watchlist.push(req.body.issueId);
+
+            let newUserObj = {
+                watchlist: foundUser.watchlist
+            }
+
+            await User.updateOne(
+                { username: username },
+                { $set: newUserObj },
+                { upsert: true }
+            )
+        }
+    } catch (error) {
+        let errorObj = {
+            message: "addIssueToUserWatchlist failure",
+            payload: error
+        }
+        console.log(errorObj);
+        res.json(errorObj);
+    }
+}
+
 module.exports = {
     createUser,
     logInUser,

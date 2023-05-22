@@ -17,6 +17,12 @@ const userSchema = new mongoose.Schema(
                 type: ObjectId,
                 ref: "Issue",
             }],
+        },
+        watchlist: {
+            type: [{
+                type: ObjectId,
+                ref: "Issue"
+            }]
         }
     }
 )
