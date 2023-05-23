@@ -6,7 +6,8 @@ const {
     logInUser,
     userData,
     logOutUser,
-    getAllUsers
+    getAllUsers,
+    addIssueToUserWatchlist,
 } = require("../controller/userController");
 
 // localhost:3030/api/user...
@@ -14,6 +15,7 @@ router.post("/createUser", createUser);
 router.post("/logInUser", logInUser);
 router.post("/userData", userData);
 router.post("/logOutUser", logOutUser);
-router.get("/getAllUsers", getAllUsers)
+router.get("/getAllUsers", getAllUsers);
+router.put("/addIssueToWatchlist", addIssueToUserWatchlist)
 
 module.exports = router;

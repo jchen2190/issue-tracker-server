@@ -171,5 +171,6 @@ module.exports = {
     logInUser,
     userData,
     logOutUser,
-    getAllUsers
+    getAllUsers,
+    addIssueToUserWatchlist
 }
